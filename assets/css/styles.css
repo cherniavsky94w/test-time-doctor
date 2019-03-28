@@ -20,6 +20,7 @@ section#auth {
 
 #app__projects__layout {
   padding-top: 70px;
+  margin: 10px;
 }
 
 h4 {
@@ -144,6 +145,7 @@ h4 {
   width: 40vw;
   display: flex;
   flex-direction: column;
+  margin: 0 10px;
 }
 
 .auth__form h4 {
@@ -200,7 +202,7 @@ h4 {
 
 .project__item .logo {
   flex: 0;
-  height: 50px;
+  min-height: 50px;
   min-width: 50px;
   display: flex;
   justify-content: center;
@@ -213,4 +215,10 @@ h4 {
 
 .project__item .logo img {
   max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .project__item {
+    flex-direction: column;
+  }
 }

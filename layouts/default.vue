@@ -9,6 +9,7 @@ export default {
   watch: {
     isLogged: {
       handler: function() {
+        if (!this.isLogged) return this.$router.push("/auth");
         this.$router.push("/home");
       },
       deep: true,

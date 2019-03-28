@@ -16,7 +16,7 @@ export const mutations = {
   setAppInit(state, payload) {
     state.app_init = payload;
     if (!payload) return;
-    localStorage.setItem('app_init', payload)
+    localStorage.setItem('app_init', JSON.stringify(payload))
   }
 }
 
@@ -24,8 +24,12 @@ export const actions = {
   checkToken({
     commit
   }) {
-    commit('setToken', localStorage.getItem('token'));
-    commit('setAppInit', localStorage.getItem('app_init'));
+    try {
+      commit('setToken', localStorage.getItem('token'));
+      commit('setAppInit', JSON.parse(localStorage.getItem('app_init')));
+    } catch (err) {
+      console.error(err);
+    }
   },
   logout({
     commit
