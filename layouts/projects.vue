@@ -12,6 +12,7 @@ export default {
   },
   beforeMount() {
     this.$store.dispatch("authStore/checkToken");
+    if (!this.$store.getters["authStore/IS_LOGGED"]) this.$router.push("/");
   }
 };
 </script>
